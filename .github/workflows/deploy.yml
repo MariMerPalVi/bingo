@@ -24,8 +24,8 @@ jobs:
           port: 21
           protocol: ftp
           local-dir: ./
-          server-dir: /htdocs/
-          dangerous-clean-slate: true
+          server-dir: ./htdocs/
+          state-name: .ftp-deploy-sync-state-htdocs.json
           exclude: |
             **/.git*
             **/.git*/**
