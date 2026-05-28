@@ -49,8 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="login-page">
     <main class="login-shell">
         <section class="login-panel">
-            <div class="brand-mark">CB</div>
-            <h1>Sistema Bingo</h1>
+            <div class="login-brand">
+                <img src="assets/img/las-naves-logo.png" alt="Las Naves Cooperativa de Ahorro y Credito">
+            </div>
+            <h1>Bingo Las Naves</h1>
             <p>Gestion de partidas para evento cooperativo</p>
 
             <?php if ($error): ?>

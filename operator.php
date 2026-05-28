@@ -22,9 +22,12 @@ $currentGame = active_or_latest_game();
 </head>
 <body data-page="operator" data-csrf="<?= htmlspecialchars(csrf_token()) ?>">
     <header class="topbar">
-        <div>
-            <strong>Sistema Bingo</strong>
-            <span>Operador: <?= htmlspecialchars($user['nombre']) ?></span>
+        <div class="topbar-brand">
+            <img src="assets/img/las-naves-logo.png" alt="Las Naves">
+            <div>
+                <strong>Bingo Las Naves</strong>
+                <span>Operador: <?= htmlspecialchars($user['nombre']) ?></span>
+            </div>
         </div>
         <nav>
             <a href="viewer.php" target="_blank">Abrir visualizador</a>
@@ -72,7 +75,7 @@ $currentGame = active_or_latest_game();
 
             <div id="message" class="message" hidden></div>
 
-            <div class="operator-grid">
+            <div class="operator-grid manual-only">
                 <section class="last-card">
                     <p>Ultimo numero</p>
                     <strong id="last-number">--</strong>
@@ -89,10 +92,6 @@ $currentGame = active_or_latest_game();
                     <div id="number-buttons" class="number-pad"></div>
                 </section>
             </div>
-
-            <section class="board-section">
-                <div id="bingo-board" class="bingo-board"></div>
-            </section>
 
             <section class="history-section">
                 <h2>Historial de salida</h2>

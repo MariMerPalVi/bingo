@@ -34,9 +34,10 @@ Puedes crear mas usuarios desde SQL usando `password_hash` de PHP para la contra
 
 1. Inicia sesion como operador y crea una partida.
 2. Abre otra pantalla, proyector o navegador con el usuario visualizador.
-3. El operador marca solo los numeros que salen de la tombola fisica.
-4. El visualizador se actualiza automaticamente cada 2 segundos.
-5. Antes del evento, prueba red local, energia, navegador y permisos de usuarios.
+3. El operador marca manualmente los numeros que salen de la tombola fisica.
+4. Si se equivoca, puede corregir el numero desde el historial con confirmacion.
+5. El visualizador se actualiza automaticamente cada 2 segundos.
+6. Antes del evento, prueba red local, energia, navegador y permisos de usuarios.
 
 ## Arquitectura
 

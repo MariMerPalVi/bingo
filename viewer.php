@@ -15,6 +15,7 @@ $game = active_or_latest_game();
     <main class="viewer-shell">
         <section class="viewer-hero">
             <div>
+                <img class="viewer-logo" src="assets/img/las-naves-logo.png" alt="Las Naves">
                 <p class="eyebrow">Bingo cooperativa</p>
                 <h1 id="viewer-game-title"><?= $game ? htmlspecialchars($game['nombre_partida']) : 'Esperando partida' ?></h1>
                 <span id="viewer-status" class="status-pill">--</span>
