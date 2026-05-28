@@ -18,7 +18,7 @@ $currentGame = active_or_latest_game();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Operador | Sistema Bingo</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260528-2">
 </head>
 <body data-page="operator" data-csrf="<?= htmlspecialchars(csrf_token()) ?>">
     <header class="topbar">

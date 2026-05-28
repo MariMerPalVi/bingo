@@ -17,7 +17,7 @@ $games = db()->query(
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Historial | Sistema Bingo</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260528-2">
 </head>
 <body>
     <header class="topbar">

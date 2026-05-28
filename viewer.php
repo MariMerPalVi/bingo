@@ -9,7 +9,7 @@ $game = active_or_latest_game();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Visualizador | Sistema Bingo</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260528-2">
 </head>
 <body class="viewer-page" data-page="viewer" data-game-id="<?= $game ? (int) $game['id'] : 0 ?>">
     <main class="viewer-shell">
@@ -19,7 +19,7 @@ $game = active_or_latest_game();
                 <span id="viewer-status" class="status-pill">--</span>
             </div>
             <div class="viewer-last">
-                <img class="viewer-last-logo" src="assets/img/las-naves-logo.png" alt="Las Naves">
+                <img class="viewer-last-logo" src="assets/img/las-naves-logo.png" alt="Las Naves" width="150" height="54">
                 <span>Ultimo numero</span>
                 <strong id="last-number">--</strong>
                 <small id="counter">0 de 75 numeros</small>

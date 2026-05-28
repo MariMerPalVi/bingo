@@ -564,11 +564,13 @@ input:focus {
 
 .viewer-last-logo {
     display: block;
-    width: min(170px, 78%);
-    height: 62px;
+    width: auto !important;
+    max-width: min(150px, 72%) !important;
+    height: 54px !important;
+    max-height: 54px !important;
     object-fit: contain;
     object-position: center;
-    margin-bottom: 8px;
+    margin: 0 auto 8px;
 }
 
 .viewer-page .viewer-last span,
