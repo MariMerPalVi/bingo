@@ -2,6 +2,11 @@ DirectoryIndex index.php index.html
 
 RewriteEngine On
 
+# Evitar que archivos del bingo subidos por error en la raiz se abran desde Falex.
+RewriteCond %{HTTP_HOST} ^(www\.)?falex\.page\.gd$ [NC]
+RewriteCond %{REQUEST_URI} ^/(operator|viewer|history|api)\.php$ [NC]
+RewriteRule ^ / [R=302,L]
+
 # Servir el sistema de bingo desde /htdocs/bingo/ cuando el dominio sea bingocoop.gt.tc.
 # La URL publica permanece como https://bingocoop.gt.tc/.
 RewriteCond %{HTTP_HOST} ^(www\.)?bingocoop\.gt\.tc$ [NC]
