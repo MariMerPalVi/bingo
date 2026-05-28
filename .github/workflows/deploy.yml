@@ -24,11 +24,12 @@ jobs:
           port: 21
           protocol: ftp
           local-dir: ./
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          server-dir: htdocs/
           exclude: |
             **/.git*
             **/.git*/**
             **/.github/**
+            README.md
             **/README.md
             **/.env
             **/.env.*
@@ -40,4 +41,5 @@ jobs:
             **/*.tmp
             **/*.bak
             **/database.sql
+            .ftp-deploy-sync-state.json
             **/.ftp-deploy-sync-state.json
