@@ -31,6 +31,7 @@ jobs:
             --exclude='config/local.php' \
             --exclude='config.local.php' \
             --exclude='database.sql' \
+            --exclude='infinityfree-root.htaccess' \
             --exclude='*.log' \
             --exclude='*.tmp' \
             --exclude='*.bak' \
@@ -62,6 +63,7 @@ jobs:
             **/.idea/**
             **/config/local.php
             **/config.local.php
+            **/infinityfree-root.htaccess
             **/*.log
             **/*.tmp
             **/*.bak
