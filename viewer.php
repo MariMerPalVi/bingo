@@ -15,12 +15,11 @@ $game = active_or_latest_game();
     <main class="viewer-shell">
         <section class="viewer-hero">
             <div>
-                <img class="viewer-logo" src="assets/img/las-naves-logo.png" alt="Las Naves">
-                <p class="eyebrow">Bingo cooperativa</p>
                 <h1 id="viewer-game-title"><?= $game ? htmlspecialchars($game['nombre_partida']) : 'Esperando partida' ?></h1>
                 <span id="viewer-status" class="status-pill">--</span>
             </div>
             <div class="viewer-last">
+                <img class="viewer-last-logo" src="assets/img/las-naves-logo.png" alt="Las Naves">
                 <span>Ultimo numero</span>
                 <strong id="last-number">--</strong>
                 <small id="counter">0 de 75 numeros</small>
