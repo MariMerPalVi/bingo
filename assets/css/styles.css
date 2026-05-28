@@ -521,10 +521,9 @@ input:focus {
 
 .viewer-page {
     background:
-        radial-gradient(circle at top left, rgba(0, 169, 96, .24), transparent 35%),
-        radial-gradient(circle at top right, rgba(27, 127, 195, .28), transparent 34%),
-        #111315;
-    color: #fff;
+        linear-gradient(180deg, rgba(0, 169, 96, .10), rgba(27, 127, 195, .08) 46%, rgba(244, 248, 251, 1)),
+        #f4f8fb;
+    color: var(--ink);
 }
 
 .viewer-shell {
@@ -554,7 +553,7 @@ input:focus {
     object-fit: contain;
     object-position: left center;
     margin-bottom: 16px;
-    filter: drop-shadow(0 14px 24px rgba(0, 0, 0, .35));
+    filter: drop-shadow(0 8px 14px rgba(35, 31, 32, .12));
 }
 
 .viewer-hero h1 {
@@ -568,12 +567,34 @@ input:focus {
     min-height: 160px;
     padding: 16px;
     border-radius: 8px;
-    background: linear-gradient(145deg, #231f20, #105486);
-    border: 1px solid rgba(255, 255, 255, .14);
+    background: #ffffff;
+    border: 1px solid rgba(27, 127, 195, .20);
+    box-shadow: 0 14px 28px rgba(35, 31, 32, .10);
+}
+
+.viewer-page .viewer-last span,
+.viewer-page .viewer-last small {
+    color: var(--muted);
 }
 
 .viewer-page .viewer-last strong {
     font-size: clamp(4rem, 24vw, 7rem);
+    color: var(--blue-dark);
+    text-shadow: none;
+}
+
+.viewer-page .board-heading {
+    background: var(--blue);
+}
+
+.viewer-page .board-cell.marked {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.viewer-page .board-cell.latest {
+    background: var(--blue-dark);
+    border-color: var(--blue-dark);
 }
 
 .viewer-page .bingo-board {
@@ -625,10 +646,12 @@ input:focus {
 
 .viewer-content .bingo-board,
 .viewer-history {
-    background: #f7f9fc;
+    background: rgba(255, 255, 255, .94);
     color: var(--ink);
     border-radius: 8px;
+    border: 1px solid rgba(27, 127, 195, .14);
     padding: 10px;
+    box-shadow: 0 10px 20px rgba(35, 31, 32, .07);
 }
 
 .data-table {
