@@ -36,8 +36,6 @@ jobs:
             --exclude='*.tmp' \
             --exclude='*.bak' \
             --exclude='.ftp-deploy-sync-state*.json'
-          mkdir -p _router
-          cp infinityfree-root.htaccess _router/.htaccess
 
       - name: Deploy Bingo application
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
@@ -48,8 +46,8 @@ jobs:
           port: 21
           protocol: ftp
           local-dir: ./_deploy/
-          server-dir: /htdocs/bingo/
-          state-name: .ftp-deploy-sync-state-bingo.json
+          server-dir: /htdocs/
+          state-name: .ftp-deploy-sync-state-bingo-root.json
           exclude: |
             **/.git*
             **/.git*/**
@@ -70,15 +68,3 @@ jobs:
             **/database.sql
             .ftp-deploy-sync-state.json
             **/.ftp-deploy-sync-state.json
-
-      - name: Deploy domain router
-        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: 21
-          protocol: ftp
-          local-dir: ./_router/
-          server-dir: /htdocs/
-          state-name: .ftp-deploy-sync-state-router.json
