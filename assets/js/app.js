@@ -236,20 +236,28 @@
         }
 
         if (!numbers.length) {
-            list.innerHTML = '<div class="history-item"><strong>Sin numeros</strong><small>Esperando salida</small></div>';
+            list.innerHTML = '<div class="history-item empty"><strong>Sin numeros</strong><small>Esperando salida</small></div>';
             return;
         }
 
         list.innerHTML = '';
-        numbers.slice().reverse().forEach((item) => {
+        numbers.forEach((item) => {
             const row = document.createElement('div');
             row.className = 'history-item';
-            row.innerHTML = `<div><strong>${escapeHtml(item.orden_salida)}. ${escapeHtml(item.codigo_bingo)}</strong><small>${escapeHtml(item.fecha_hora)}</small></div>`;
+            row.innerHTML = `
+                <div class="history-main">
+                    <span class="history-order">${escapeHtml(item.orden_salida)}</span>
+                    <div>
+                        <strong>${escapeHtml(item.codigo_bingo)}</strong>
+                        <small>${escapeHtml(item.fecha_hora)}</small>
+                    </div>
+                </div>
+            `;
 
             if (page === 'operator') {
                 const button = document.createElement('button');
                 button.type = 'button';
-                button.className = 'danger-button';
+                button.className = 'danger-button history-correct';
                 button.textContent = 'Corregir';
                 button.addEventListener('click', () => deleteNumber(Number(item.numero)));
                 row.appendChild(button);
