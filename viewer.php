@@ -28,10 +28,6 @@ $game = active_or_latest_game();
 
         <section class="viewer-content">
             <div id="bingo-board" class="bingo-board large"></div>
-            <aside class="viewer-history">
-                <h2>Orden de salida</h2>
-                <div id="history-list" class="history-list compact"></div>
-            </aside>
         </section>
     </main>
     <script src="assets/js/app.js"></script>
