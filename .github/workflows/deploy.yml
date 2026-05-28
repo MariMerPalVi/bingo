@@ -46,8 +46,8 @@ jobs:
           port: 21
           protocol: ftp
           local-dir: ./_deploy/
-          server-dir: /htdocs/
-          state-name: .ftp-deploy-sync-state-bingo-root.json
+          server-dir: /bingocoop.gt.tc/htdocs/
+          state-name: .ftp-deploy-sync-state-bingocoop.json
           exclude: |
             **/.git*
             **/.git*/**
