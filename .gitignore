@@ -1,6 +1,18 @@
+# Credenciales y configuracion privada
 .env
+.env.*
+config/local.php
 config.local.php
+
+# Archivos generados o temporales
 *.log
+*.tmp
+*.bak
+*.swp
+.ftp-deploy-sync-state.json
+
+# Sistema / editor
 .DS_Store
 Thumbs.db
 .vscode/
+.idea/

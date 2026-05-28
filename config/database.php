@@ -1,11 +1,39 @@
 <?php
 declare(strict_types=1);
 
-const DB_HOST = '127.0.0.1';
-const DB_PORT = '3306';
-const DB_NAME = 'sistema_bingo';
-const DB_USER = 'root';
-const DB_PASS = '';
+$privateConfig = __DIR__ . '/local.php';
+$localConfig = is_file($privateConfig) ? require $privateConfig : [];
+$isLocalRequest = in_array($_SERVER['HTTP_HOST'] ?? 'localhost', ['localhost', '127.0.0.1'], true);
+
+function database_config_value(array $config, string $key, string $envName, string $default): string
+{
+    if (isset($config[$key]) && $config[$key] !== '') {
+        return (string) $config[$key];
+    }
+
+    $envValue = getenv($envName);
+    if ($envValue !== false && $envValue !== '') {
+        return (string) $envValue;
+    }
+
+    return $default;
+}
+
+$databaseConfig = [
+    'host' => database_config_value($localConfig, 'host', 'DB_HOST', $isLocalRequest ? '127.0.0.1' : ''),
+    'port' => database_config_value($localConfig, 'port', 'DB_PORT', '3306'),
+    'name' => database_config_value($localConfig, 'name', 'DB_NAME', 'sistema_bingo'),
+    'user' => database_config_value($localConfig, 'user', 'DB_USER', $isLocalRequest ? 'root' : ''),
+    'pass' => database_config_value($localConfig, 'pass', 'DB_PASS', ''),
+];
+
+if (!defined('DB_HOST')) {
+    define('DB_HOST', (string) $databaseConfig['host']);
+    define('DB_PORT', (string) $databaseConfig['port']);
+    define('DB_NAME', (string) $databaseConfig['name']);
+    define('DB_USER', (string) $databaseConfig['user']);
+    define('DB_PASS', (string) $databaseConfig['pass']);
+}
 
 function db(): PDO
 {
@@ -13,6 +41,20 @@ function db(): PDO
 
     if ($pdo instanceof PDO) {
         return $pdo;
+    }
+
+    if (DB_HOST === '' || DB_USER === '') {
+        http_response_code(500);
+        exit(
+            '<!doctype html><html lang="es"><meta charset="utf-8">' .
+            '<title>Configurar base de datos</title>' .
+            '<body style="font-family:Arial,sans-serif;background:#f4f7fb;color:#14213d;padding:32px">' .
+            '<div style="max-width:720px;background:#fff;border:1px solid #d9e1ec;border-radius:8px;padding:24px">' .
+            '<h1>Falta configurar MySQL de produccion</h1>' .
+            '<p>Cree el archivo privado <strong>config/local.php</strong> en el hosting con los datos MySQL del panel de InfinityFree.</p>' .
+            '<p>Use <strong>config/local.example.php</strong> como plantilla. No suba credenciales al repositorio.</p>' .
+            '</div></body></html>'
+        );
     }
 
     $dsn = 'mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_NAME . ';charset=utf8mb4';
