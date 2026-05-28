@@ -35,23 +35,6 @@ jobs:
             --exclude='*.tmp' \
             --exclude='*.bak' \
             --exclude='.ftp-deploy-sync-state*.json'
-          mkdir -p _deploy/htdocs
-          rsync -av _deploy/ _deploy/htdocs/ \
-            --exclude='.git' \
-            --exclude='.github' \
-            --exclude='htdocs' \
-            --exclude='README.md' \
-            --exclude='.env' \
-            --exclude='.env.*' \
-            --exclude='.vscode' \
-            --exclude='.idea' \
-            --exclude='config/local.php' \
-            --exclude='config.local.php' \
-            --exclude='database.sql' \
-            --exclude='*.log' \
-            --exclude='*.tmp' \
-            --exclude='*.bak' \
-            --exclude='.ftp-deploy-sync-state*.json'
 
       - name: Deploy to InfinityFree
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
@@ -62,8 +45,8 @@ jobs:
           port: 21
           protocol: ftp
           local-dir: ./_deploy/
-          server-dir: ./
-          state-name: .ftp-deploy-sync-state-root.json
+          server-dir: /htdocs/bingo/
+          state-name: .ftp-deploy-sync-state-bingo.json
           exclude: |
             **/.git*
             **/.git*/**
