@@ -1,9 +1,3 @@
-CREATE DATABASE IF NOT EXISTS sistema_bingo
-  CHARACTER SET utf8mb4
-  COLLATE utf8mb4_unicode_ci;
-
-USE sistema_bingo;
-
 CREATE TABLE IF NOT EXISTS roles (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(30) NOT NULL UNIQUE

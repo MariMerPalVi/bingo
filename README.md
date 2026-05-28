@@ -11,9 +11,17 @@ Sistema web interno en PHP, MySQL, HTML, CSS y JavaScript para registrar manualm
 ## Instalacion local
 
 1. Copia este proyecto en `C:\xampp\htdocs\sistema_bingo`.
-2. Crea la base de datos importando `database.sql` desde phpMyAdmin o MySQL.
-3. Revisa los datos de conexion en `config/database.php`.
-4. Abre `http://localhost/sistema_bingo/`.
+2. Crea una base de datos llamada `sistema_bingo` en XAMPP/phpMyAdmin.
+3. Selecciona esa base e importa `database.sql`.
+4. Revisa los datos de conexion en `config/database.php`.
+5. Abre `http://localhost/sistema_bingo/`.
+
+## Instalacion en InfinityFree
+
+1. Crea una base MySQL desde el panel de InfinityFree.
+2. Abre phpMyAdmin desde esa base.
+3. Selecciona la base creada e importa `database.sql`.
+4. Crea el archivo privado `htdocs/config/local.php` con los datos MySQL del panel.
 
 ## Usuarios iniciales
 
