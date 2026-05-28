@@ -15,6 +15,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Prepare InfinityFree folder
+        shell: bash
+        run: |
+          mkdir -p _deploy/htdocs
+          rsync -av ./ _deploy/htdocs/ \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='_deploy' \
+            --exclude='README.md' \
+            --exclude='.env' \
+            --exclude='.env.*' \
+            --exclude='.vscode' \
+            --exclude='.idea' \
+            --exclude='config/local.php' \
+            --exclude='config.local.php' \
+            --exclude='database.sql' \
+            --exclude='*.log' \
+            --exclude='*.tmp' \
+            --exclude='*.bak' \
+            --exclude='.ftp-deploy-sync-state*.json'
+
       - name: Deploy to InfinityFree
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
@@ -23,13 +44,14 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           protocol: ftp
-          local-dir: ./
-          server-dir: ./htdocs/
-          state-name: .ftp-deploy-sync-state-htdocs.json
+          local-dir: ./_deploy/
+          server-dir: ./
+          state-name: .ftp-deploy-sync-state-root.json
           exclude: |
             **/.git*
             **/.git*/**
             **/.github/**
+            **/_deploy/**
             README.md
             **/README.md
             **/.env
